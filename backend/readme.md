@@ -21,8 +21,8 @@ A simple REST API built with FastAPI and Pandas. It gets live currency exchange 
 
    ```Bash
    # Linux / macOS
-   python3 -m venv venv
-   source venv/bin/activate
+   python3 -m venv .venv
+   source .venv/bin/activate
 
    # Windows
    python -m venv venv
