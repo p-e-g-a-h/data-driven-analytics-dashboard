@@ -5,10 +5,23 @@ from pydantic import Field
 from typing import List, Annotated
 import httpx
 import pandas as pd
-
+from fastapi.middleware.cors import CORSMiddleware
 
 load_dotenv()
 app = FastAPI()
+
+origins = [
+    "http://localhost:5173",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 API_URL = os.getenv("API_URL", "https://api.frankfurter.dev/v1/latest")
 CurrencyCode = Annotated[str, Field(min_length=3, max_length=3)]
