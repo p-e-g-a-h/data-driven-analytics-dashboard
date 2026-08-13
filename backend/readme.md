@@ -8,6 +8,7 @@ A simple REST API built with FastAPI and Pandas. It gets live currency exchange 
 - **httpx** - For fetching external API data
 - **Pandas** - For data calculations
 - **python-dotenv** - For environment variables
+- **pytest** - For unit testing & mocking API responses
 
 ## ⚙️ How to Run
 
@@ -32,7 +33,7 @@ A simple REST API built with FastAPI and Pandas. It gets live currency exchange 
 3. Install dependencies:
 
    ```Bash
-   pip install fastapi uvicorn httpx pandas python-dotenv
+   pip install fastapi uvicorn httpx pandas python-dotenv pytest
    ```
 
 4. Create a .env file:
@@ -46,6 +47,14 @@ A simple REST API built with FastAPI and Pandas. It gets live currency exchange 
    ```Bash
    uvicorn app:app --reload
    ```
+
+## 🧪 Running Tests
+
+Run the test suite using pytest. The tests use TestClient and AsyncMock to test success scenarios (200), validation errors (422), missing rate data (404), and server connection failures (502):
+
+```Bash
+pytest -v
+```
 
 ## 📌 API Endpoint
 
